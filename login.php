@@ -13,7 +13,7 @@ if(isset($_POST['Login'])) {
 	$sql = "select count(*),first_name from User_Profile where user_name = ? and passwd = ?";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("ss", $usr, $passwd);
-	$result = $stmt->execute();
+	$stmt->execute();
 	$stmt->bind_result($count,$name);
 	$stmt->fetch();
 	$stmt->close();
