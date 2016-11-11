@@ -6,6 +6,9 @@
 		$from=$_POST['from'];
 		$to=$_POST['to'];
 		$date=$_POST['date'];
+		$timestamp=strtotime($date);
+		$day=date('w',$timestamp);
+		
 	}
 ?>
 

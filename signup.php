@@ -50,7 +50,7 @@ if(isset($_POST['signup'])){
     	if(mysqli_query($conn,$query)){
     		$successmsg="Successfully Registered !<a href='login.php'>Click here to Login</a>";
     	}else{
-    		$errormsg="Error in registering.... try again!";
+    		$errormsg="Please choose different user_name !!";
     	}
     }
 
