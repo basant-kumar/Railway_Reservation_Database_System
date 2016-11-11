@@ -8,7 +8,7 @@
 		$date=$_POST['date'];
 		$timestamp=strtotime($date);
 		$day=date('w',$timestamp);
-		
+		$sql="select "
 	}
 ?>
 
