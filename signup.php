@@ -135,7 +135,7 @@ if(isset($_POST['signup'])){
 		<p align="center">Already have Account? <a href="login.php">Login</a></p>
 		<span ><?php if (isset($successmsg)) { echo $successmsg; } ?></span>
 	    <span ><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
-		<span ><?php if (isset($errormsg2)) { echo $errormsg; } ?></span>
+		<span ><?php if (isset($errormsg2)) { echo $errormsg2; } ?></span>
 	</div>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
