@@ -7,37 +7,7 @@
 <html>
 <head>
 	<title>Home Page</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
-	<style>
-		ul{
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			background-color: #747a84;
-			overflow: hidden;
-			position: fixed;
-			top: 0;
-			width: 100%;
-		}
-		li{
-			float: left;
-		}
-		li a{
-			display: block;
-			color: white;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-
-		}
-		li a:hover:not(.active){
-			background-color: black;
-		}
-		li a.active{
-			background-color: #4CAF50;
-		}
-	</style>
-</head>
+	<link rel="stylesheet" type="text/css" href="css/index.css" ></link>
 <body style=" background-color: #f7f7f7;">
 <div>
 	<ul>
@@ -51,11 +21,44 @@
 		<li style="float: right"><a  href="login.php">Login</a></li>
 		<?php }?>
 	</ul>
-</div><br>
-<div align="center" style="margin: 100px">
+</div>
+<div align="center" style="margin-top: 60px">
 	<h1 align="center">National Railway Reservation System</h1>
 </div>
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<div align="center" >
+	<h1 style="color:Blue">Set Your Journey</h1>
+</div>
+<div>
+	<form action="result.php" method="post">
+	<?php 
+		echo "<datalist id='stations'> ";
+		$sql="select stn_code,stn_name from stations";
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+		$stmt->bind_result($stn_code,$stn_name);
+		while($stmt->fecth()){
+			
+		}
+
+	<table align="center" style="margin-top: 30px" width="300" height="150">
+		<tr>
+			<td>From: </td>
+			<td><input list="stations" type="text" name="from" placeholder="From"></td>
+		</tr>
+		<tr>
+			<td>To: </td>
+			<td><input list="stations" type="text" name="to" placeholder="To"></td>
+		</tr>
+		<tr>
+			<td>Date of Journey: </td>
+			<td><input type="date" name="date" placeholder="dd-mm-yyyy"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="setjourney"></td>
+		</tr>
+	</table>
+	</form>
+</div>
 </body>
 </html>
