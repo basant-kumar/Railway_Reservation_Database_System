@@ -30,24 +30,15 @@
 </div>
 <div>
 	<form action="result.php" method="post">
-	<?php 
-		echo "<datalist id='stations'> ";
-		$sql="select stn_code,stn_name from stations";
-		$stmt = $conn->prepare($sql);
-		$stmt->execute();
-		$stmt->bind_result($stn_code,$stn_name);
-		while($stmt->fecth()){
-			
-		}
-
 	<table align="center" style="margin-top: 30px" width="300" height="150">
 		<tr>
 			<td>From: </td>
-			<td><input list="stations" type="text" name="from" placeholder="From"></td>
+			<td><input list="stations"  name="from" placeholder="From"></td>
 		</tr>
+
 		<tr>
 			<td>To: </td>
-			<td><input list="stations" type="text" name="to" placeholder="To"></td>
+			<td><input list="stations" name="to" placeholder="To"></td>
 		</tr>
 		<tr>
 			<td>Date of Journey: </td>
@@ -58,6 +49,19 @@
 			<td><input type="submit" name="setjourney"></td>
 		</tr>
 	</table>
+	
+	<?php 
+		echo "<datalist id='stations'> ";
+		$sql="select stn_code,stn_name from stations";
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+		$stmt->bind_result($stn_code,$stn_name);
+		while($stmt->fetch()){
+			echo '<option value="'.$stn_name.' ('.$stn_code.')">';
+		}
+		$stmt->close();
+		echo "</datalist>";
+	?>
 	</form>
 </div>
 </body>
