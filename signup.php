@@ -52,10 +52,10 @@ if(isset($_POST['signup'])){
     		$successmsg="Successfully Registered !<a href='login.php'>Click here to Login</a>";
     	}else{
     		$errormsg="Username already exists...";
-			echo "GO BACK..!!!";
+			$errormsg2 = "GO BACK..!!!";
     	}
     }
-	else echo "GO BACK..!!!";
+	else $errormsg2 = "GO BACK..!!!";
 
 }
 
@@ -134,7 +134,8 @@ if(isset($_POST['signup'])){
 	<div align="center" style="font-size:20px">
 		<p align="center">Already have Account? <a href="login.php">Login</a></p>
 		<span ><?php if (isset($successmsg)) { echo $successmsg; } ?></span>
-	            <span ><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+	    <span ><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+		<span ><?php if (isset($errormsg2)) { echo $errormsg; } ?></span>
 	</div>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
