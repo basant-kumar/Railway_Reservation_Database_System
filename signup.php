@@ -44,15 +44,17 @@ if(isset($_POST['signup'])){
         $error = true;
         $mobile_error = "Invaild Mobile No";
     }
+	
     if(!$error){
     	$query="insert into User_Profile(user_name,passwd,first_name,last_name,gender,email,mobile,dob) 
     			values('" .$user_name. "','" .$passwd. "','" .$fname. "','" .$lname. "','" .$gender. "','" .$email. "','" .$mobile ."','" .$dob.  "') ";
     	if(mysqli_query($conn,$query)){
     		$successmsg="Successfully Registered !<a href='login.php'>Click here to Login</a>";
     	}else{
-    		$errormsg="Error in registering.... try again!";
+    		$errormsg="Please Choose different username....";
     	}
     }
+	else echo "GO BACK..!!!";
 
 }
 
