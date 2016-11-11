@@ -51,7 +51,8 @@ if(isset($_POST['signup'])){
     	if(mysqli_query($conn,$query)){
     		$successmsg="Successfully Registered !<a href='login.php'>Click here to Login</a>";
     	}else{
-    		$errormsg="Please Choose different username....";
+    		$errormsg="Username already exists...";
+			echo "GO BACK..!!!";
     	}
     }
 	else echo "GO BACK..!!!";
