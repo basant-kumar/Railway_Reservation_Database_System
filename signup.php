@@ -44,15 +44,18 @@ if(isset($_POST['signup'])){
         $error = true;
         $mobile_error = "Invaild Mobile No";
     }
+	
     if(!$error){
     	$query="insert into User_Profile(user_name,passwd,first_name,last_name,gender,email,mobile,dob) 
     			values('" .$user_name. "','" .$passwd. "','" .$fname. "','" .$lname. "','" .$gender. "','" .$email. "','" .$mobile ."','" .$dob.  "') ";
     	if(mysqli_query($conn,$query)){
     		$successmsg="Successfully Registered !<a href='login.php'>Click here to Login</a>";
     	}else{
-    		$errormsg="Error in registering.... try again!";
+    		$errormsg="Username already exists...";
+			$errormsg2 = "GO BACK..!!!";
     	}
     }
+	else $errormsg2 = "GO BACK..!!!";
 
 }
 
@@ -63,7 +66,24 @@ if(isset($_POST['signup'])){
 <head>
 	<title>SignUp Page</title>
 </head>
+	<link rel="stylesheet" type="text/css" href="css/index.css" ></link>
 <body style=" background-color: #f7f7f7;">
+<div>
+	<ul>
+		<?php if(isset($_SESSION['user_name'])){ ?>
+		<li><a class="active" href="index.php">Home</a></li>
+		<li><a  href="pnr_status.php">PNR Status</a></li>
+		<li><a  href="cancel_ticket.php">Cancel Ticket</a></li>
+		<li style="float: right;"><a href="logout.php">Log Out</a></li>
+		<li style="float: right;"><p>Hi <?php echo " ".$_SESSION['user_name']."   "?></p></li>
+		<?php } else {?>
+		<li><a class="active" href="index.php">Home</a></li>
+		<li><a  href="pnr_status.php">PNR Status</a></li>
+		<li style="float: right"><a  href="signup.php">SignUp</a></li>
+		<li style="float: right"><a  href="login.php">Login</a></li>
+		<?php }?>
+	</ul>
+</div><br><br><br>
 	<h1 align="center" style="color:red ">SignUp Page</h1>
 	<form action="signup.php" method="POST">
 	<div align="center" style="font-size: 20px;">
@@ -131,7 +151,8 @@ if(isset($_POST['signup'])){
 	<div align="center" style="font-size:20px">
 		<p align="center">Already have Account? <a href="login.php">Login</a></p>
 		<span ><?php if (isset($successmsg)) { echo $successmsg; } ?></span>
-	            <span ><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+	    <span ><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+		<span ><?php if (isset($errormsg2)) { echo $errormsg2; } ?></span>
 	</div>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>

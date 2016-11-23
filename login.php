@@ -13,19 +13,18 @@ if(isset($_POST['Login'])) {
 	$sql = "select count(*),first_name from User_Profile where user_name = ? and passwd = ?";
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param("ss", $usr, $passwd);
-	$result = $stmt->execute();
+	$stmt->execute();
 	$stmt->bind_result($count,$name);
 	$stmt->fetch();
 	$stmt->close();
 	if($count == 1){
 		$_SESSION['user_name']=$name;
 		//echo $name;
-		header("location:index.php");
-		
+		if(isset($_SESSION['goto'])) header("location:result.php");
+		else header("location:index.php");
 	}
 	else{
 		$error_message="Please enter correct username or password";
-		
 	}
 }
 
