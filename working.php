@@ -1,5 +1,6 @@
 <?php
 echo '<h1>I am all listening.!!!';
+<<<<<<< HEAD
 ?>
 
 
@@ -16,3 +17,6 @@ echo '<h1>I am all listening.!!!';
 				<a href="result.php?tn=<?php echo $result['train_no']; ?>
 							&&f=<?php echo $result['fair']; ?>&&d=<?php echo $date; ?>
 							&&c=<?php echo $result['current_day']; ?>&&cl='Sleeper'" >SL</a>
+=======
+?>
+>>>>>>> origin/master

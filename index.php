@@ -53,7 +53,11 @@
 	<h1 style="color:Blue">Set Your Journey</h1>
 </div>
 <div>
+<<<<<<< HEAD
 	<form action="index.php" method="post">
+=======
+	<form action="result.php" method="post">
+>>>>>>> origin/master
 	<table align="center" style="margin-top: 30px" width="300" height="150">
 		<tr>
 			<td>From: </td>
